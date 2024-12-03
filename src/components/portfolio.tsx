@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Ecommerce from '../assets/ecommerce.jpg'
 import News from '../assets/news.jpg'
 import Todo from '../assets/todo.png'
-import Textutils from '../assets/TextEditer.png'
+import Textutils from '../assets/Texteditor.png'
 import Link from 'next/link';
 // import { Button } from "./ui/moving-border";
 
@@ -59,7 +59,7 @@ const Portfolio = () => {
                             <div className='mt-3 text-gray-400 font-semibold'>
                                 ReactJs &nbsp; React Bootstrap
                             </div>
-                            <Link target='_blank' href='#'><button className='flex border-2 rounded border-gray-800 hover:border-gray-700  bg-gray-900 hover:bg-gray-800 hover:text-orange-100 text-center p-1 justify-center flex-initial mt-3 text-lg text-white w-32 '>Visit Now</button>   </Link>
+                            <Link target='_blank' href='https://text-editer-by-psych.netlify.app/'><button className='flex border-2 rounded border-gray-800 hover:border-gray-700  bg-gray-900 hover:bg-gray-800 hover:text-orange-100 text-center p-1 justify-center flex-initial mt-3 text-lg text-white w-32 '>Visit Now</button>   </Link>
                         </div>
                     </div>
 
