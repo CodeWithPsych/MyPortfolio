@@ -166,6 +166,10 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
+    interface RingData {
+      color: (t: number) => string;
+    }
+    
 
     globeRef.current
       .arcsData(data)
@@ -192,7 +196,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .pointAltitude(0.0)
       .pointRadius(2);
 
-    globeRef.current
+      globeRef.current
       .ringsData([])
       .ringColor((e: any) => (t: any) => e.color(t))
       .ringMaxRadius(defaultProps.maxRings)
