@@ -166,9 +166,6 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const startAnimation = () => {
     if (!globeRef.current || !globeData) return;
-    interface RingData {
-      color: (t: number) => string;
-    }
     
 
     globeRef.current
