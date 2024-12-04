@@ -5,7 +5,6 @@ import News from '../assets/news.jpg'
 import Todo from '../assets/todo.png'
 import Textutils from '../assets/Texteditor.png'
 import Link from 'next/link';
-// import { Button } from "./ui/moving-border";
 
 const Portfolio = () => {
     return (
