@@ -12,8 +12,8 @@
     "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-label": "^2.1.0",
     "@react-pdf-viewer/core": "^3.12.0",
-    "@react-three/drei": "^9.112.0",
-    "@react-three/fiber": "^8.17.7",
+    "@react-three/drei": "^9.56.7",
+    "@react-three/fiber": "^8.13.5",
     "@tabler/icons-react": "^3.16.0",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.0",
@@ -22,6 +22,7 @@
     "icons-react": "^3.7.1",
     "lucide-react": "^0.439.0",
     "mini-svg-data-uri": "^1.4.4",
+    "motion": "^12.18.1",
     "next": "14.2.8",
     "pdfjs-dist": "^3.4.120",
     "react": "^18",
@@ -31,11 +32,11 @@
     "react-hot-toast": "^2.4.1",
     "react-spinners": "^0.14.1",
     "sharp": "^0.33.5",
-    "tailwind-merge": "^2.5.2",
+    "tailwind-merge": "^2.6.0",
     "tailwind-scrollbar": "^3.1.0",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.168.0",
-    "three-globe": "^2.31.1"
+    "three-globe": "^2.42.11"
   },
   "devDependencies": {
     "@types/node": "^20",

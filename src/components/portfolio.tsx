@@ -1,120 +1,154 @@
 import React from 'react';
-import Image from 'next/image';
-import Ecommerce from '../assets/ecommerce.jpg'
-import News from '../assets/news.jpg'
-import Todo from '../assets/todo.png'
-import Textutils from '../assets/Texteditor.png'
-import Link from 'next/link';
+import { CodeXml } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
-const Portfolio = () => {
-    return (
-        <div id='portfolio' className="flex items-center justify-center bg-gray/[0.56] w-full my-14 ">
-            <div className="flex flex-col w-4/5 items-center">
-                <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-                    ⚡A Glimpse Into My Recent Projects
-                </h2>
-                <div className='flex flex-col w-full  mt-5 lg:mt-10 md:mt-10 items-start   h-auto'>
-                    {/* website no 1  */}
-                    <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-7 my-5'>
-                        <div className='flex box-border cursor-pointer border-2 p-3 justify-center items-center rounded-2xl bg-gray-900 hover:bg-gray-800 w-52 h-40 animate-moving-border'>
-                            <Image className='object-contain rounded-xl hover:scale-105' src={Ecommerce} alt="Urham Galoure" />
-                        </div>
+export function GlowingEffectDemo() {
+  return (
+    <div id='portfolio' className="flex items-center justify-center bg-black w-full my-14">
+      <div className="flex flex-col w-4/5 items-center">
+        <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+          ⚡A Glimpse Into My Recent Projects
+        </h2>
+        <h2 className="my-4 underline font-normal text-base md:text-2xl text-amber-300 max-w-lg mx-auto">
+          npm i @arham.dev
+        </h2>
 
-                        <div className="flex flex-col">
-                            <h2 className='text-xl lg:text-2xl tracking-wide font-bold text-gray-400'>
-                                Ecommerce Store
-                            </h2>
-                            <ul className="list-disc pl-5 pt-4 md:pt-0 lg:pt-0 text-gray-300 text-xs lg:text-xl">
-                                <li><strong>Urham Galoure</strong> - A fully functional e-commerce platform offering seamless user experience</li>
-                                <li>Secure and efficient <strong>login</strong> and <strong>signup</strong> systems for both users and admins</li>
-                                <li>Comprehensive <strong>admin panel</strong> for managing products, orders, users, and inventory</li>
-                                <li>Integrated <strong>card payment</strong> gateway along with <strong>cash on delivery</strong> options</li>
-                                <li>User-friendly shopping cart, wishlist features and much more </li>
-                            </ul>
-                            <div className='mt-3 text-gray-400 font-semibold'>
-                                ReactJs &nbsp; NodeJs &nbsp; ExpressJs &nbsp; MongoDB &nbsp; Stripe &nbsp; Tailwind
-                            </div>
-                            <Link target='_blank' href='#'> <button className='flex border-2 rounded border-gray-800 hover:border-gray-700  bg-gray-900 hover:bg-gray-800 hover:text-orange-100 text-center p-1 justify-center flex-initial mt-3 text-lg text-white w-32 '>Visit Now</button></Link>
-                        </div>
-                    </div>
+        <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
+          <Portfolio
+            area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
+            icon={<CodeXml className="h-4 w-4 text-black dark:text-neutral-400" />}
+            title="🔐 Anonify"
+            description="Send anonymous messages to anyone — instantly and securely."
+            bgImage="/images/Anonify.png"
+            githubUrl="https://github.com/CodeWithPsych/anonify"
+            siteUrl="https://anonify-one.vercel.app/"
 
-                    {/* website no 2  */}
-                    <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-7 my-5'>
-                        <div className='flex box-border cursor-pointer border-2 p-3 justify-center items-center rounded-2xl bg-gray-900 hover:bg-gray-800 w-52 h-40 animate-moving-border'>
-                            <Image className='object-contain rounded-xl hover:scale-105' src={Textutils} alt="Textutils" />
-                        </div>
-                        <div className="flex flex-col">
-                            <h2 className='text-2xl  tracking-wide font-bold text-gray-400'>
-                                Text Editer
-                            </h2>
-                            <ul className="list-disc pl-5 pt-4 md:pt-0 lg:pt-0 text-gray-300 text-xs lg:text-xl">
-                                <li><strong>TextUtils</strong> - A versatile tool for editing and transforming text</li>
-                                <li>Capitalize words or convert them to lowercase with ease</li>
-                                <li>Automatically capitalize the first letter of every sentence</li>
-                                <li>Count the total words and characters in your text</li>
-                                <li>Efficiently remove extra spaces from the text</li>
-                                <li>Instantly preview the changes before applying them</li>
-                            </ul>
-                            <div className='mt-3 text-gray-400 font-semibold'>
-                                ReactJs &nbsp; React Bootstrap
-                            </div>
-                            <Link target='_blank' href='https://text-editer-by-psych.netlify.app/'><button className='flex border-2 rounded border-gray-800 hover:border-gray-700  bg-gray-900 hover:bg-gray-800 hover:text-orange-100 text-center p-1 justify-center flex-initial mt-3 text-lg text-white w-32 '>Visit Now</button>   </Link>
-                        </div>
-                    </div>
+          />
+          <Portfolio
+            area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
+            icon={<CodeXml className="h-4 w-4 text-black dark:text-neutral-400" />}
+            title="🛒 Urham Galoure"
+            description="A full-stack e-commerce platform built to deliver a seamless shopping experience."
+            bgImage="/images/ecommerce.png"
+            githubUrl="https://github.com/CodeWithPsych/ecommerce"
+            siteUrl="https://urham.vercel.app/"
 
-                    {/* website no 3  */}
-                    <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-7 my-5'>
-                        <div className='flex box-border cursor-pointer border-2 p-3 justify-center items-center rounded-2xl bg-gray-900 hover:bg-gray-800 w-52 h-40 animate-moving-border'>
-                            <Image className='object-contain rounded-xl hover:scale-105' src={News} alt="News monkey" />
-                        </div>
-                        <div className="flex flex-col">
-                            <h2 className='text-2xl  tracking-wide font-bold text-gray-400'>
-                                News App
-                            </h2>
-                            <ul className="list-disc pl-5 pt-4 md:pt-0 lg:pt-0 text-gray-300 text-xs lg:text-xl">
-                                <li><strong>NewsMonkey</strong> - A cutting-edge platform delivering the latest news</li>
-                                <li>Real-time updates on trending news, politics, entertainment, technology, and more</li>
-                                <li>Intuitive and user-friendly interface for seamless browsing across categories</li>
-                                <li>Personalized news feed based on user preferences and interests</li>
-                            </ul>
-                            <div className='mt-3 text-gray-400 font-semibold'>
-                                ReactJs &nbsp; React Bootstrap &nbsp; News Api
-                            </div>
-                            <Link target='_blank' href='https://news-with-psych.netlify.app/'><button className='flex border-2 rounded border-gray-800 hover:border-gray-700  bg-gray-900 hover:bg-gray-800 hover:text-orange-100 text-center p-1 justify-center flex-initial mt-3 text-lg text-white w-32 '>Visit Now</button></Link>
-                        </div>
-                    </div>
+          />
+          <Portfolio
+            area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
+            icon={<CodeXml className="h-4 w-4 text-black dark:text-neutral-400" />}
+            title="📝 TextEditor"
+            description="Edit your text effortlessly with features like capitalization, extra space removal, and formatting.
+Perfect for writers, students, and anyone who wants clean, polished content in seconds."
+            bgImage="/images/Texteditor.png"
+            githubUrl="https://github.com/CodeWithPsych/TextEditor"
+            siteUrl="https://text-editer-by-psych.netlify.app/"
 
-                    {/* website no 4  */}
-                    <div className='flex flex-col sm:flex-col md:flex-col lg:flex-row gap-7 my-5'>
-                        <div className='flex box-border cursor-pointer border-2 p-3 justify-center items-center rounded-2xl bg-gray-900 hover:bg-gray-800 w-52 h-40 animate-moving-border'>
-                            <Image className='object-contain rounded-xl hover:scale-105' src={Todo} alt="Todo" />
-                        </div>
-                        <div className="flex flex-col">
-                            <h2 className='text-2xl  tracking-wide font-bold text-gray-400'>
-                                Todo List
-                            </h2>
-                            <ul className="list-disc pl-5 pt-4 md:pt-0 lg:pt-0 text-gray-300 text-xs lg:text-xl">
-                                <li><strong>Todo App</strong> - A simple and efficient task management tool built with Redux Toolkit</li>
-                                <li>Organize your tasks with an intuitive and clean user interface</li>
-                                <li>State management powered by <strong>Redux Toolkit</strong> for smooth performance and scalability</li>
-                                <li>Add, edit, and delete tasks with real-time updates</li>
-                            </ul>
-                            <div className='mt-3 text-gray-400 font-semibold'>
-                                ReactJs &nbsp; React Bootstrap &nbsp; Redux Toolkit &nbsp; MongoDB &nbsp; ExpressJS &nbsp; NodeJS
-                            </div>
-                            <Link target='_blank' href='https://todo-frontend-omf6vn5ce-codewithpsychs-projects.vercel.app/'><button className='flex border-2 rounded border-gray-800 hover:border-gray-700  bg-gray-900 hover:bg-gray-800 hover:text-orange-100 text-center p-1 justify-center flex-initial mt-3 text-lg text-white w-32 '>Visit Now</button></Link>
-                        </div>
-                    </div>
-                </div>
-                {/* <Button
-                    borderRadius="1.75rem"
-                    className="bg-white dark:bg-black text-black dark:text-white  border-neutral-200 dark:border-slate-800"
-                >
-                    View More
-                </Button> */}
-            </div >
-        </div>
-    );
+
+          />
+          <Portfolio
+            area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
+            icon={<CodeXml className="h-4 w-4 text-black dark:text-neutral-400" />}
+            title="🛡️ Notes Shield"
+            description="Securely store your notes in the cloud and access them anytime, anywhere — fully encrypted and always protected."
+            bgImage="/images/notes.png"
+            githubUrl="https://github.com/CodeWithPsych/NotesSheild"
+            siteUrl="https://notes-sheild.vercel.app/"
+
+          />
+          <Portfolio
+            area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
+            icon={<CodeXml className="h-4 w-4 text-black dark:text-neutral-400" />}
+            title="📲 Vybz"
+            description="A social video-sharing app where you can share vibe with short videos."
+            bgImage="/images/vybz.png"
+            githubUrl="https://github.com/CodeWithPsych/vybz"
+            siteUrl="https://vybz-phi.vercel.app/"
+
+          />
+        </ul>
+      </div>
+    </div>
+  );
 }
+
+interface PortfolioProps {
+  area: string;
+  icon: React.ReactNode;
+  title: string;
+  description: React.ReactNode;
+  bgImage?: string;
+  githubUrl?: string;
+  siteUrl?: string;
+}
+
+const Portfolio = ({
+  area,
+  icon,
+  title,
+  description,
+  bgImage,
+  githubUrl,
+  siteUrl,
+}: PortfolioProps) => {
+  const openInNewTab = (url?: string) => {
+    if (url) window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <li className={`min-h-[14rem] list-none ${area}`}>
+      <div
+        onClick={() => openInNewTab(siteUrl)}
+        title="View Live Site"
+        className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3 group cursor-pointer"
+      >
+        <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
+
+        <div
+          className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]"
+          style={{
+            backgroundImage: bgImage ? `url(${bgImage})` : undefined,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/80 rounded-xl z-0 transition-all duration-300" />
+
+          {/* GitHub Icon with separate onClick */}
+          <div
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent outer card click
+              openInNewTab(githubUrl);
+            }}
+            title="View Code on GitHub"
+            className="group/icon relative z-10 w-fit rounded-lg border border-gray-600 p-2 bg-white/80 hover:bg-white transition-colors duration-300 dark:bg-black/40 dark:hover:bg-white"
+          >
+            {icon}
+          </div>
+
+          {/* Title + Description */}
+          <div className="relative z-10 mt-auto space-y-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
+              {title}
+            </h3>
+            <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-300 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+              {description}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </li>
+  );
+};
+
+
 
 export default Portfolio;

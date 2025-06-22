@@ -1,5 +1,4 @@
 'use client'
-// import Link from "next/link";
 import { Spotlight } from "./ui/SpotLight";
 import { Button } from "./ui/moving-border";
 
@@ -19,14 +18,12 @@ function HeroSection() {
                 <h2
                     className="mt-4 font-normal text-base md:text-2xl text-neutral-300 max-w-lg mx-auto"
                 >Welcome to My Digital Realm!</h2>
+          
                 <p
                     className="mt-4 font-normal text-sm md:text-lg text-neutral-300 max-w-2xl mx-auto"
                 >Explore the projects, code, and creativity that fuel my passion as a full stack web developer. Whether it&apos;s crafting responsive web apps with the MERN stack, diving deep into Next.js, or experimenting with cutting-edge technologies, you&apos;ll find it all here. Let&apos;s build something amazing together!</p>
                 <div className="mt-4">
-                    <a
-                        href="/Resume.pdf"
-                        download="Resume.pdf"
-                    >
+                 <a href="/Resume.pdf" download>
                         <Button
                             borderRadius="1.75rem"
                             className="bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-slate-800"

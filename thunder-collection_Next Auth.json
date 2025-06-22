@@ -1,0 +1,86 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Next Auth",
+    "collectionId": "82c8d184-5bb4-4135-bd73-75e4c6bc3d11",
+    "dateExported": "2025-04-24T18:38:46.789Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "71c7ab0b-10bf-4ebd-bc40-bb61c2e6037a",
+            "colId": "82c8d184-5bb4-4135-bd73-75e4c6bc3d11",
+            "containerId": "",
+            "name": "signup",
+            "url": "http://localhost:3000/api/users/signup",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-04-13T17:57:17.652Z",
+            "modified": "2025-04-17T12:34:22.047Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"code with psych\",\n  \"email\": \"arhammalik900@yahoo.com\",\n  \"password\": \"Password123\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "2ab6bdfe-177d-41a4-a41b-5877a670c966",
+            "colId": "82c8d184-5bb4-4135-bd73-75e4c6bc3d11",
+            "containerId": "",
+            "name": "verifyemail",
+            "url": "http://localhost:3000/api/users/verifyemail",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-04-17T12:01:07.583Z",
+            "modified": "2025-04-17T12:58:55.102Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\":\"$2b$10$UGinbaFuY4afQft.gGYxfOx9wktmbUtjE8zAKMbesW7hUeAu5JDJC\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "eea443de-ddee-44c8-9a1b-3d7512b72c0a",
+            "colId": "82c8d184-5bb4-4135-bd73-75e4c6bc3d11",
+            "containerId": "",
+            "name": "login",
+            "url": "http://localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2025-04-17T13:00:46.654Z",
+            "modified": "2025-04-17T13:01:24.520Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"arhammalik900@yahoo.com\",\n  \"password\": \"Password123\"\n}\n",
+                "form": []
+            }
+        },
+        {
+            "_id": "a130a696-794c-47d0-8f42-fa9012ac3420",
+            "colId": "82c8d184-5bb4-4135-bd73-75e4c6bc3d11",
+            "containerId": "",
+            "name": "me",
+            "url": "http://localhost:3000/api/users/me",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2025-04-17T13:04:36.279Z",
+            "modified": "2025-04-17T13:06:13.592Z",
+            "headers": []
+        },
+        {
+            "_id": "7e033541-b7f9-4b71-b836-9e416963b710",
+            "colId": "82c8d184-5bb4-4135-bd73-75e4c6bc3d11",
+            "containerId": "",
+            "name": "logout",
+            "url": "http://localhost:3000/api/users/logout",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2025-04-17T13:08:30.964Z",
+            "modified": "2025-04-17T13:08:51.375Z",
+            "headers": []
+        }
+    ],
+    "ref": "a-WR_f254rTv_A0EeDQ8pZePqTCVk2bahLlj8QStetpagRZXicPeCG_KaoyYB3uob6lrTeuBsxeHkzVGyYImog"
+}

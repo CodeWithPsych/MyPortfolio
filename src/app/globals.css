@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+/* Root color variables */
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
 }
 
+/* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -21,6 +23,7 @@ html {
   }
 }
 
+/* Body styles */
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -29,44 +32,38 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+  /* ✅ Tailwind Scrollbar plugin classes */
+  @apply scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-300;
 }
 
+/* Optional: Dark mode scrollbar styles */
+.dark body {
+  @apply scrollbar-thumb-gray-600 scrollbar-track-gray-800;
+}
+
+/* Utility layer */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
-/* For WebKit browsers (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* For Firefox */
-html {
-  scrollbar-width: none;
-}
-
-/* For Internet Explorer and older versions of Edge */
-body {
-  -ms-overflow-style: none;
-}
+/* Keyframe for animated borders */
 @keyframes movingBorder {
   0% {
-    border-color: #1f2937; 
+    border-color: #1f2937;
   }
   25% {
     border-color: #374151;
   }
   50% {
-    border-color: #4b5563; 
+    border-color: #4b5563;
   }
   75% {
-    border-color: #6b7280; 
+    border-color: #6b7280;
   }
   100% {
     border-color: #1f2937;
   }
 }
-
-

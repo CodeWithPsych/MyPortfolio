@@ -1,23 +1,19 @@
 import type { Config } from "tailwindcss";
-
 const svgToDataUri = require("mini-svg-data-uri");
 const colors = require("tailwindcss/colors");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
+const scrollbar = require("tailwind-scrollbar");
 
-// Plugin to add each Tailwind color as a global CSS variable
+/** Custom plugin to convert Tailwind colors to CSS variables */
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, value]) => [`--${key}`, value])
   );
-
-  addBase({
-    ":root": newVars,
-  });
+  addBase({ ":root": newVars });
 }
 
+/** Custom plugin to generate grid/dot SVG backgrounds */
 function addSvgPatterns({ matchUtilities, theme }: any) {
   matchUtilities(
     {
@@ -33,7 +29,7 @@ function addSvgPatterns({ matchUtilities, theme }: any) {
       }),
       "bg-dot": (value: any) => ({
         backgroundImage: `url("${svgToDataUri(
-          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
+          `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" cx="10" cy="10" r="1.6257413380501518"/></svg>`
         )}")`,
       }),
     },
@@ -53,16 +49,14 @@ const config: Config = {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         'moving-border': 'movingBorder 3s linear infinite',
-        scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       boxShadow: {
-        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+        input: "0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       keyframes: {
         spotlight: {
@@ -74,9 +68,21 @@ const config: Config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        movingBorder: {
+          "0%": { borderColor: "#1f2937" },
+          "25%": { borderColor: "#374151" },
+          "50%": { borderColor: "#4b5563" },
+          "75%": { borderColor: "#6b7280" },
+          "100%": { borderColor: "#1f2937" },
+        },
       },
     },
   },
-  plugins: [addVariablesForColors, addSvgPatterns],
+  plugins: [
+    addVariablesForColors,
+    addSvgPatterns,
+    scrollbar({ nocompatible: true }), // <- Add this plugin for scrollbar utilities
+  ],
 };
+
 export default config;

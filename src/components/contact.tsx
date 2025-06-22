@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useRef, useState } from 'react';
 import SyncLoader from "react-spinners/SyncLoader";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
@@ -17,27 +17,27 @@ type FormData = {
 
 const Contact = () => {
     const radius = 100;
-    
-    // Hooks must always be called in the same order
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+    const [visible, setVisible] = useState(false);
+
     const motionBg = useMotionTemplate`
         radial-gradient(
-            ${radius}px circle at ${mouseX}px ${mouseY}px,
+            ${visible ? radius + "px" : "0px"} circle at ${mouseX}px ${mouseY}px,
             var(--blue-500),
             transparent 80%
         )
     `;
-
-    const form = useRef<HTMLFormElement>(null);
-    const [sending, setSending] = useState(false);
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
     const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
         const { left, top } = event.currentTarget.getBoundingClientRect();
         mouseX.set(event.clientX - left);
         mouseY.set(event.clientY - top);
     };
+
+    const form = useRef<HTMLFormElement>(null);
+    const [sending, setSending] = useState(false);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
 
     const onSubmit = () => {
         if (form.current) {
@@ -119,6 +119,8 @@ const Contact = () => {
                             <motion.div
                                 style={{ background: motionBg }}
                                 onMouseMove={handleMouseMove}
+                                onMouseEnter={() => setVisible(true)}
+                                onMouseLeave={() => setVisible(false)}
                                 className="p-[2px] rounded-lg transition duration-300 group/input"
                             >
                                 <textarea

@@ -8,7 +8,7 @@ const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
 });
 
 export function GlobeDemo() {
-  const globeConfig = {
+ const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
     showAtmosphere: true,
@@ -393,7 +393,6 @@ export function GlobeDemo() {
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
   ];
-
   return (
     <div id="services" className="flex flex-row items-center justify-center h-screen md:h-auto bg-gray/[0.56] relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-[30rem]  md:h-[40rem]  px-4">
