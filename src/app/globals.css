@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Root color variables */
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* Body styles */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+
+  /* ✅ Tailwind Scrollbar plugin classes */
+  @apply scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-300;
+}
+
+/* Optional: Dark mode scrollbar styles */
+.dark body {
+  @apply scrollbar-thumb-gray-600 scrollbar-track-gray-800;
+}
+
+/* Utility layer */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Keyframe for animated borders */
+@keyframes movingBorder {
+  0% {
+    border-color: #1f2937;
+  }
+  25% {
+    border-color: #374151;
+  }
+  50% {
+    border-color: #4b5563;
+  }
+  75% {
+    border-color: #6b7280;
+  }
+  100% {
+    border-color: #1f2937;
+  }
+}
+/* Add these to your globals.css */
+
+/* Floating badge animation */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-gentle 5.5s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-gentle 4.5s ease-in-out 0.8s infinite;
+}
+
+/* Smooth spotlight animate — used in hero */
+@keyframes animate-spotlight {
+  0% { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
+  100% { opacity: 1; transform: translate(-50%, -40%) scale(1); }
+}
+
+.animate-spotlight {
+  animation: animate-spotlight 2s ease forwards;
+}
+
+/* Scrollbar thin for terminal */
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-visible-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
