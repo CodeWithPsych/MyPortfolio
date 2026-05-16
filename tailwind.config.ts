@@ -4,7 +4,6 @@ const colors = require("tailwindcss/colors");
 const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
 const scrollbar = require("tailwind-scrollbar");
 
-/** Custom plugin to convert Tailwind colors to CSS variables */
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme("colors"));
   const newVars = Object.fromEntries(
@@ -13,7 +12,6 @@ function addVariablesForColors({ addBase, theme }: any) {
   addBase({ ":root": newVars });
 }
 
-/** Custom plugin to generate grid/dot SVG backgrounds */
 function addSvgPatterns({ matchUtilities, theme }: any) {
   matchUtilities(
     {
@@ -48,15 +46,17 @@ const config: Config = {
     extend: {
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
-        'moving-border': 'movingBorder 3s linear infinite',
-        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
       boxShadow: {
-        input: "0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)",
+        input:
+          "0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       keyframes: {
         spotlight: {
@@ -68,20 +68,13 @@ const config: Config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
-        movingBorder: {
-          "0%": { borderColor: "#1f2937" },
-          "25%": { borderColor: "#374151" },
-          "50%": { borderColor: "#4b5563" },
-          "75%": { borderColor: "#6b7280" },
-          "100%": { borderColor: "#1f2937" },
-        },
       },
     },
   },
   plugins: [
     addVariablesForColors,
     addSvgPatterns,
-    scrollbar({ nocompatible: true }), // <- Add this plugin for scrollbar utilities
+    scrollbar({ nocompatible: true }),
   ],
 };
 

@@ -1,7 +1,7 @@
 "use client";
+
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Spline from "@splinetool/react-spline";
 import { OrbSlot } from "@/components/SplineScrollOrb";
 
 const roles = [
@@ -31,7 +31,9 @@ function RoleCycler() {
         if (i < text.length) {
           el.textContent = text.slice(0, ++i);
           charTimeout = setTimeout(step, 55);
-        } else { onDone(); }
+        } else {
+          onDone();
+        }
       };
       step();
     };
@@ -44,7 +46,9 @@ function RoleCycler() {
           text = text.slice(0, -1);
           el.textContent = text;
           charTimeout = setTimeout(step, 30);
-        } else { onDone(); }
+        } else {
+          onDone();
+        }
       };
       step();
     };
@@ -62,15 +66,33 @@ function RoleCycler() {
     };
 
     cycle();
-    return () => { running = false; clearTimeout(charTimeout); clearTimeout(pauseTimeout); };
+    return () => {
+      running = false;
+      clearTimeout(charTimeout);
+      clearTimeout(pauseTimeout);
+    };
   }, []);
 
   return (
-    <span ref={roleRef} className="text-violet-400 font-medium" aria-live="polite" />
+    <span
+      ref={roleRef}
+      className="text-violet-400 font-medium"
+      aria-live="polite"
+    />
   );
 }
 
-function FloatingBadge({ label, x, y, delay }: { label: string; x: string; y: string; delay: number }) {
+function FloatingBadge({
+  label,
+  x,
+  y,
+  delay,
+}: {
+  label: string;
+  x: string;
+  y: string;
+  delay: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.7 }}
@@ -85,8 +107,6 @@ function FloatingBadge({ label, x, y, delay }: { label: string; x: string; y: st
 }
 
 export default function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section
       id="home"
@@ -98,12 +118,14 @@ export default function HeroSection() {
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-900/20 rounded-full blur-[100px]" />
         <div
           className="absolute inset-0 opacity-[0.015]"
-          style={{ backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`, backgroundSize: "40px 40px" }}
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
         />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
-        
         {/* Left: Text */}
         <div className="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
           <motion.div
@@ -159,8 +181,20 @@ export default function HeroSection() {
               className="group flex items-center gap-2 px-6 py-3 rounded-full bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold tracking-wide transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-lg shadow-violet-900/40"
             >
               View My Work
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:translate-x-0.5 transition-transform">
-                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                className="group-hover:translate-x-0.5 transition-transform"
+              >
+                <path
+                  d="M2 7h10M8 3l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </a>
             <a
@@ -178,16 +212,22 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.7 }}
             className="flex items-center gap-6 mt-10 justify-center lg:justify-start"
           >
-            {[{ num: "15+", label: "Projects" }, { num: "2+", label: "Years" }, { num: "100%", label: "Dedication" }].map((s) => (
+            {[
+              { num: "15+", label: "Projects" },
+              { num: "2+", label: "Years" },
+              { num: "100%", label: "Dedication" },
+            ].map((s) => (
               <div key={s.label} className="text-center lg:text-left">
                 <p className="text-2xl font-bold text-white">{s.num}</p>
-                <p className="text-xs text-neutral-500 tracking-wider uppercase">{s.label}</p>
+                <p className="text-xs text-neutral-500 tracking-wider uppercase">
+                  {s.label}
+                </p>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Right: Orb area — same size/position as original */}
+        {/* Right: Orb area */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -197,18 +237,39 @@ export default function HeroSection() {
           <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[420px] lg:h-[420px]">
             <div className="absolute inset-0 rounded-full bg-violet-600/10 blur-3xl scale-75 animate-pulse" />
 
-            {/* Mobile: real Spline embedded here */}
-            <div className="block lg:hidden w-full h-full">
-              <Spline scene="https://prod.spline.design/axD63XGyPO7IswMG/scene.splinecode" />
+            {/* Mobile: lightweight static avatar — NO Spline on mobile */}
+            <div className="flex lg:hidden w-full h-full items-center justify-center">
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56">
+                {/* Rotating ring */}
+                <div
+                  className="absolute inset-0 rounded-full border border-violet-500/20"
+                  style={{ animation: "spin 12s linear infinite" }}
+                />
+                <div
+                  className="absolute inset-3 rounded-full border border-indigo-500/15"
+                  style={{ animation: "spin 8s linear infinite reverse" }}
+                />
+                {/* Avatar circle */}
+                <div className="absolute inset-6 rounded-full bg-gradient-to-br from-violet-900/60 to-indigo-900/40 border border-violet-500/30 backdrop-blur-sm flex items-center justify-center">
+                  <span className="text-4xl sm:text-5xl font-black text-white tracking-tighter">
+                    AS
+                  </span>
+                </div>
+                {/* Orbiting dot */}
+                <div
+                  className="absolute top-1 left-1/2 w-2 h-2 -translate-x-1/2 rounded-full bg-violet-400"
+                  style={{ animation: "spin 4s linear infinite", transformOrigin: "0 95px" }}
+                />
+              </div>
             </div>
 
-            {/* Desktop: slot that the provider portals the shared Spline into */}
+            {/* Desktop: shared Spline orb */}
             <OrbSlot id="hero" className="hidden lg:block w-full h-full" />
 
-            <FloatingBadge label="React"   x="-left-12"  y="top-12"    delay={0.8} />
-            <FloatingBadge label="Next.js" x="-right-10" y="top-8"    delay={1.0} />
-            <FloatingBadge label="Node.js" x="-left-10"  y="bottom-16" delay={1.2} />
-            <FloatingBadge label="MongoDB" x="-right-8"  y="bottom-12" delay={1.4} />
+            <FloatingBadge label="React" x="-left-12" y="top-12" delay={0.8} />
+            <FloatingBadge label="Next.js" x="-right-10" y="top-8" delay={1.0} />
+            <FloatingBadge label="Node.js" x="-left-10" y="bottom-16" delay={1.2} />
+            <FloatingBadge label="MongoDB" x="-right-8" y="bottom-12" delay={1.4} />
           </div>
         </motion.div>
       </div>
